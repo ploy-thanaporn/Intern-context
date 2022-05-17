@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer, useState } from "react";
+import "./App.css";
+import LoginArea from "./LoginArea";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const AuthContext = React.createContext();
+
+function reducer(state, action) {
+  if (action.type === "login") {
+    const { username, fullname } = action.payload;
+    return { username, fullname };
+  }
+  if (action.type === "logout") {
+    return null;
+  }
+  return state;
 }
 
+// dispatch = ตัวส่งข้อมุลคำสั่งไปทำงานข้างใน state (reducer)
+function App() {
+  const [authState, authDispatch] = useReducer(reducer, null);
+
+  return (
+    <AuthContext.Provider value={{ authState, authDispatch }}>
+      <section className="app-section">
+        <div className="app-container">
+          <LoginArea />
+        </div>
+      </section>
+    </AuthContext.Provider>
+  );
+}
+export { AuthContext };
 export default App;
