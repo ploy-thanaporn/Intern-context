@@ -1,6 +1,6 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import "./App.css";
-import LoginArea from "./LoginArea";
+import LoginArea from "./components/LoginArea";
 
 const AuthContext = React.createContext();
 
@@ -29,5 +29,6 @@ function App() {
     </AuthContext.Provider>
   );
 }
+
 export { AuthContext };
 export default App;

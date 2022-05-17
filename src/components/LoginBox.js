@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "./App";
+import { AuthContext } from "../App";
 
 const fakeUser = { username: "ploy1501", fullname: "Thanaporn" };
 
@@ -21,7 +21,9 @@ function LoginBox() {
         <p>Auth username :: {authState.username} </p>
         <p>Auth fullname :: {authState.fullname} </p>
         <p>
-          <button onClick={logoutSubmit}>Logout</button>
+          <button onClick={logoutSubmit} className="btn-logout">
+            Logout
+          </button>
         </p>
       </div>
     );
@@ -36,7 +38,9 @@ function LoginBox() {
         <input type="password" placeholder="password" />
       </p>
       <p>
-        <button type="submit">Log in</button>
+        <button type="submit" className="btn-login">
+          Log in
+        </button>
       </p>
     </form>
   );

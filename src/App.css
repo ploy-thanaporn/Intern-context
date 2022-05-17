@@ -10,3 +10,17 @@
   text-align: center;
   background-color: antiquewhite;
 }
+
+.btn-login {
+  background-color: #555555;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+}
+
+.btn-logout {
+  background-color: #f87474;
+  color: white;
+  padding: 4px 10px;
+  border: none;
+}
